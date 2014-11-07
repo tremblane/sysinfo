@@ -5,7 +5,6 @@
 #
 #   Taken from a script I found online and modified
 
-
 b=`tput bold`
 n=`tput sgr0`
 echo -e "${b}Hostname:${n} `hostname`"
