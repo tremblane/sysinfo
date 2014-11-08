@@ -9,7 +9,7 @@ b=`tput bold`
 n=`tput sgr0`
 echo -e "${b}Hostname:${n} `hostname`"
 echo -e "${b}OS Version:${n} `cat /etc/redhat-release`\n"
-echo -e "${b}IP address(es):${n}\n`/sbin/ifconfig | grep "inet " | awk '{print $2}' | sed 's/addr://' | sort -n`\n"
+echo -e "${b}IP address(es):${n}\n`/sbin/ifconfig | grep "inet " | awk '{print $2}' | sed 's/addr://' | sort -n | awk -F'.' '{ printf("%3d.%3d.%3d.%3d\n", $1, $2, $3, $4) }'`\n"
 echo -e "${b}CPU load:${n} `cat /proc/loadavg | cut -d" " -f1-3`"
 echo -e "${b}Uptime:${n} `uptime | sed 's/\(.*\),.*,.*,.*,.*/\1/' | sed 's/.*up *//'`"
 echo -e "${b}Free memorry:${n} `cat /proc/meminfo | grep MemFree | awk {'print int($2/1024)'}` MB \t\t ${b}Total memory:${n} `cat /proc/meminfo | grep MemTotal | awk {'print int($2/1024)'}` MB"
