@@ -4,6 +4,7 @@
 #   note: designed for RHEL/CentOS systems
 #
 #   Taken from a script I found online and modified
+# extra comment line
 
 b=`tput bold`
 n=`tput sgr0`
